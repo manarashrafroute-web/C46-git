@@ -30,7 +30,9 @@ export default () => {
         })
     })
 
-    console.log("Hello");
+    var x = 5
+    console.log(x);
+
 
     app.listen(3000, () => {
         console.log("Server is running on port 3000");
