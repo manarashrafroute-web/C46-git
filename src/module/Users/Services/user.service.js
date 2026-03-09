@@ -167,6 +167,24 @@ export let GetUserByIdService = async (userId) => {
 
 
 
+export let UpdatePasswordService = async (userId) => {
+    // // Find user by ID and include their notes
+    const user = await User.findOne({
+        where: { id: userId },
+        attributes: { exclude: ['password'] },
+        include: [
+            {
+                model: Note,
+                as: 'notes',
+                attributes: ['id', 'title', 'content', 'createdAt']
+            }
+        ]
+    })
+
+    return user
+}
+
+
 
 
 
